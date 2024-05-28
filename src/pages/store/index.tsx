@@ -1,6 +1,9 @@
 import React from "react";
+import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 import { ItemI } from "@/interfaces/ItemI";
+import ItemBtn from "@/components/ItemBtn";
+import ItemCarousel from "@/components/ItemCarousel";
 
 const Store: React.FC = () => {
   const [items, setItems] = useState<ItemI[]>([]);
@@ -28,21 +31,18 @@ const Store: React.FC = () => {
   }, [items]);
 
   return (
-    <ul>
-      {items.map((item) => (
-        <li key={item.id}>
-          <img src={item.image} alt={item.title} width="50" />
-          <div>
-            {item.title} - ${item.price}
-          </div>
-          <div>
-            Rating: {item.rating.rate} ({item.rating.count} reviews)
-          </div>
-          <div>{item.category}</div>
-          <p>{item.description}</p>
-        </li>
-      ))}
-    </ul>
+    <>
+      {/* <div className={styles["products-div"]}>
+        <ul>
+          {items.map((item) => (
+            <li key={item.id}>
+              <ItemBtn item={item} />
+            </li>
+          ))}
+        </ul>
+      </div> */}
+      <ItemCarousel items={items} />
+    </>
   );
 };
 

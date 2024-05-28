@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <header className={isScrolled ? "black-bg" : "transparent"}>
-      <Link href="/movies">
+      <Link href="/store">
         <h1>Fake-Store</h1>
       </Link>
       {/* <NavBar /> */}

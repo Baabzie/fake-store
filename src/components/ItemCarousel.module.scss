@@ -1,0 +1,12 @@
+.carousel-slide {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /* Distributes space evenly */
+  align-items: center; /* Aligns items vertically centered */
+}
+.carousel .slide {
+  background: none; /* Removes default background */
+  display: flex; /* Ensures slide uses flex layout */
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+}

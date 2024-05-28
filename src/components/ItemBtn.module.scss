@@ -1,0 +1,30 @@
+.item-btn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 222px;
+  height: 500px;
+
+  .img-div {
+    padding: 24px;
+    background-color: white;
+    min-height: 384px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    img {
+      width: 222px;
+    }
+  }
+  .text-div {
+    margin-bottom: 8px;
+    p {
+      margin: 0;
+      margin-bottom: 8px;
+      width: 100%;
+      font-weight: bold;
+    }
+  }
+}
