@@ -13,7 +13,7 @@ const ItemBtn: React.FC<ItemBtnProps> = ({ item }) => {
         <img src={item.image} alt={item.title} width="50" />
       </div>
       <div className={styles["text-div"]}>
-        <p>{item.title}</p>
+        {/* <p>{item.title}</p> */}
         <p>${item.price}</p>
       </div>
       {/* <div>

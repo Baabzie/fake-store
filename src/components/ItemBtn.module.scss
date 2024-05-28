@@ -5,11 +5,11 @@
   flex-direction: column;
   text-align: left;
   width: 222px;
-  height: 500px;
+  // height: 500px;
+  background-color: white;
 
   .img-div {
     padding: 24px;
-    background-color: white;
     min-height: 384px;
     display: flex;
     flex-direction: column;
@@ -20,9 +20,13 @@
   }
   .text-div {
     margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // height: 100px;
     p {
-      margin: 0;
-      margin-bottom: 8px;
+      text-align: center;
+      // margin: 0;
       width: 100%;
       font-weight: bold;
     }

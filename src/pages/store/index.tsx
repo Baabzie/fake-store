@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 import { ItemI } from "@/interfaces/ItemI";
 import ItemBtn from "@/components/ItemBtn";
-import ItemCarousel from "@/components/ItemCarousel";
+import ItemCarousel from "@/components/itemCarousel/ItemCarousel";
 
 const Store: React.FC = () => {
   const [items, setItems] = useState<ItemI[]>([]);
