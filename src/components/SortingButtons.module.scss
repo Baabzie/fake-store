@@ -1,0 +1,15 @@
+.sorting-button-div {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.6rem;
+  button {
+    all: unset;
+    cursor: pointer;
+    text-align: left;
+    padding: 0.5rem 0.8rem;
+    background-color: rgb(238, 76, 76);
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+}

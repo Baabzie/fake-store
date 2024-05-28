@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 import { ItemI } from "@/interfaces/ItemI";
-import ItemBtn from "@/components/ItemBtn";
 import ItemCarousel from "@/components/itemCarousel/ItemCarousel";
+import SortingButtons from "@/components/SortingButtons";
 
 const Store: React.FC = () => {
   const [items, setItems] = useState<ItemI[]>([]);
@@ -27,20 +27,12 @@ const Store: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    console.log(items);
+    // console.log(items);
   }, [items]);
 
   return (
     <>
-      {/* <div className={styles["products-div"]}>
-        <ul>
-          {items.map((item) => (
-            <li key={item.id}>
-              <ItemBtn item={item} />
-            </li>
-          ))}
-        </ul>
-      </div> */}
+      <SortingButtons items={items} />
       <ItemCarousel items={items} />
     </>
   );
