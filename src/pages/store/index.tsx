@@ -3,7 +3,6 @@ import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 import { ItemI } from "@/interfaces/ItemI";
 import ItemCarousel from "@/components/itemCarousel/ItemCarousel";
-import SortingButtons from "@/components/SortingButtons";
 
 const Store: React.FC = () => {
   const [items, setItems] = useState<ItemI[]>([]);
@@ -32,7 +31,6 @@ const Store: React.FC = () => {
 
   return (
     <>
-      <SortingButtons items={items} />
       <ItemCarousel items={items} />
     </>
   );
