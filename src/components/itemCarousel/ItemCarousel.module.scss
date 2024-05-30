@@ -1,7 +1,12 @@
+.carousel {
+  width: 100%;
+}
+
 .carousel-slide {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  // justify-content: space-around;
+  gap: 8px;
   align-items: center;
   background-color: #c7c7c7;
   padding: 1.5rem;

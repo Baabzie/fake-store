@@ -1,0 +1,16 @@
+.product-detail-div {
+  display: flex;
+  .img-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 600px;
+    // height: 600px;
+    padding: 2rem;
+    img {
+      max-width: 400px;
+    }
+  }
+}

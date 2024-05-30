@@ -25,7 +25,6 @@ const SortingButtons: React.FC<SortingButtonsProps> = ({
       new Set(items.map((item) => item.category))
     );
     setCategories(uniqueCategoriesArray);
-    console.log(uniqueCategoriesArray);
   }, [items]);
 
   const handleCategoryClick = (category: string): void => {

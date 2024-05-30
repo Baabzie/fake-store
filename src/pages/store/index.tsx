@@ -25,10 +25,6 @@ const Store: React.FC = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    // console.log(items);
-  }, [items]);
-
   return (
     <>
       <ItemCarousel items={items} />
