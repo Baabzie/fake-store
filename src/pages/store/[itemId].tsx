@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { ItemI } from "@/interfaces/ItemI";
 import styles from "./ProductDetailPage.module.scss";
+import DescriptionAccordion from "@/components/descriptionAccordion/DescriptionAccordion";
 
 const ProductDetailPage: React.FC = () => {
   const router = useRouter();
@@ -39,7 +40,16 @@ const ProductDetailPage: React.FC = () => {
       <div className={styles["img-div"]}>
         <img src={item?.image} alt={item?.title} />
       </div>
-      <h2>{item?.title}</h2>
+      <div className={styles["information-div"]}>
+        <div className={styles["title-price-div"]}>
+          <h2>{item?.title}</h2>
+          <p>${item?.price}</p>
+        </div>
+        <div>
+          <button className={styles["add-to-cart-btn"]}>Add to cart</button>
+        </div>
+        <DescriptionAccordion description={item?.description || ""} />
+      </div>
     </div>
   );
 };

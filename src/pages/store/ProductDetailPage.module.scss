@@ -1,16 +1,33 @@
 .product-detail-div {
   display: flex;
+  gap: 1rem;
+  width: 100%;
   .img-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
-    width: 600px;
+    width: 50%;
     // height: 600px;
     padding: 2rem;
     img {
       max-width: 400px;
     }
+  }
+
+  .information-div {
+    width: 50%;
+  }
+
+  .add-to-cart-btn {
+    all: unset;
+    cursor: pointer;
+    text-align: left;
+    padding: 0.5rem 0.8rem;
+    background-color: rgb(238, 76, 76);
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
   }
 }
