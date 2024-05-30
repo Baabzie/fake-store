@@ -1,3 +1,5 @@
+@import "@/styles/colors.scss";
+
 .sorting-button-div {
   display: flex;
   gap: 0.6rem;
@@ -8,12 +10,12 @@
     cursor: pointer;
     text-align: left;
     padding: 0.5rem 0.8rem;
-    background-color: rgb(238, 76, 76);
+    background-color: $color2;
     color: white;
     font-weight: bold;
     border-radius: 4px;
   }
   .active-btn {
-    background-color: rgb(233, 140, 140);
+    background-color: $color3;
   }
 }

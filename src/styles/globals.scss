@@ -1,6 +1,15 @@
+// Typo: Ubunto
+// #F2071B
+// #1797A6
+// #106973
+// #29C7D9
+// #F2CC0C
+
+@import "./colors.scss";
+
 body {
   margin: 0;
-  background-color: #f3f3f3;
+  background-color: $background-color;
 }
 #__next {
   width: 100%;

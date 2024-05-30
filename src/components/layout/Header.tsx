@@ -1,6 +1,7 @@
 // import NavBar from "./NavBar";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import styles from "./Header.module.scss";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,7 +27,8 @@ export default function Header() {
   return (
     <header className={isScrolled ? "black-bg" : "transparent"}>
       <Link href="/store">
-        <h1>Fake-Store</h1>
+        {/* <h1>Fake-Store</h1> */}
+        <img className={styles["logo"]} src="./images/logo.webp"></img>
       </Link>
       {/* <NavBar /> */}
     </header>
