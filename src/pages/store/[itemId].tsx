@@ -31,9 +31,10 @@ const ProductDetailPage: React.FC = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(item);
-  }, [item]);
+  // For testing only.
+  //   useEffect(() => {
+  //     console.log(item);
+  //   }, [item]);
 
   return (
     <div className={styles["product-detail-div"]}>

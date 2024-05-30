@@ -4,33 +4,56 @@ import Link from "next/link";
 import styles from "./Header.module.scss";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [categories, setCategories] = useState<string[]>([]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById("movieList");
-      if (element) {
-        const offset = element.offsetTop - 200;
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://fakestoreapi.com/products/categories"
+        );
 
-        const scrollTop = window.scrollY;
-        setIsScrolled(scrollTop > offset);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        setCategories(data);
+      } catch (error) {
+        console.error("There was a problem with the fetch operation:", error);
       }
     };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    fetchData();
   }, []);
 
+  const capitalizeFirstLetter = (string: string): string => {
+    if (string.length === 0) return string;
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   return (
-    <header className={isScrolled ? "black-bg" : "transparent"}>
+    <header className={styles["header"]}>
       <Link href="/store">
         {/* <h1>Fake-Store</h1> */}
-        <img className={styles["logo"]} src="./images/logo.webp"></img>
+        <img
+          className={styles["logo"]}
+          src="./images/logo.webp"
+          alt="fake store logo"
+        ></img>
       </Link>
-      {/* <NavBar /> */}
+      <nav>
+        <ul>
+          {categories.map((category) => {
+            return (
+              <li>
+                <Link href={`/categoryPage/${category}`}>
+                  <p>{capitalizeFirstLetter(category)}</p>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </header>
   );
 }
