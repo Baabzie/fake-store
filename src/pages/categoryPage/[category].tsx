@@ -2,6 +2,8 @@ import React from "react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { ItemI } from "@/interfaces/ItemI";
+import styles from "./CategoryPage.module.scss";
+import Link from "next/link";
 
 const CategoryPage: React.FC = () => {
   const [items, setItems] = useState<ItemI[]>([]);
@@ -43,7 +45,30 @@ const CategoryPage: React.FC = () => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  return <h2>{capitalizeFirstLetter(categoryStr)}</h2>;
+  return (
+    <div className={styles["category-page-div"]}>
+      <div>
+        <h2>{capitalizeFirstLetter(categoryStr)}</h2>
+      </div>
+      <ul className={styles["item-list"]}>
+        {items.map((item) => {
+          return (
+            <li>
+              <Link href={`/store/${item.id}`} className={styles["item-btn"]}>
+                <div className={styles["img-div"]}>
+                  <img src={item.image} alt={item.title} width="50" />
+                </div>
+                <div className={styles["text-div"]}>
+                  <p>{item.title}</p>
+                  <p>${item.price}</p>
+                </div>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 };
 
 export default CategoryPage;
