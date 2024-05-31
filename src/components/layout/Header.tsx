@@ -41,6 +41,10 @@ export default function Header() {
           alt="fake store logo"
         ></img>
       </Link>
+      <Link href="/cartPage/cartPage">
+        {/* <h1>Fake-Store</h1> */}
+        Shopping Cart
+      </Link>
       <nav>
         <ul>
           {categories.map((category) => {
