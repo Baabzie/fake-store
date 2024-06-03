@@ -36,7 +36,13 @@ const cartSlice = createSlice({
         (cartItem) => cartItem.item.id === action.payload.id
       );
       if (existingItem) {
-        existingItem.quantity = action.payload.quantity;
+        if (action.payload.quantity < 1) {
+          state.items = state.items.filter(
+            (cartItem) => cartItem.item.id !== action.payload.id
+          );
+        } else {
+          existingItem.quantity = action.payload.quantity;
+        }
       }
     },
     clearCart: (state) => {

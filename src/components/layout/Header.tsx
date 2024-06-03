@@ -47,9 +47,9 @@ export default function Header() {
       </Link>
       <nav>
         <ul>
-          {categories.map((category) => {
+          {categories.map((category, i) => {
             return (
-              <li>
+              <li key={i}>
                 <Link href={`/categoryPage/${category}`}>
                   <p>{capitalizeFirstLetter(category)}</p>
                 </Link>

@@ -1,21 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/configureStore";
-import {
-  addItem,
-  removeItem,
-  updateQuantity,
-  clearCart,
-} from "@/redux/cartSlice";
-import { ItemI } from "@/interfaces/ItemI";
+import { removeItem, updateQuantity, clearCart } from "@/redux/cartSlice";
 
 const CartPage: React.FC = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
-
-  const handleAddItem = (item: ItemI) => {
-    dispatch(addItem(item));
-  };
 
   const handleRemoveItem = (id: number) => {
     dispatch(removeItem(id));
@@ -23,6 +13,13 @@ const CartPage: React.FC = () => {
 
   const handleUpdateQuantity = (id: number, quantity: number) => {
     dispatch(updateQuantity({ id, quantity }));
+  };
+
+  const handleQuantityChange = (id: number, value: string) => {
+    const quantity = parseInt(value, 10);
+    if (!isNaN(quantity) && quantity >= 0) {
+      dispatch(updateQuantity({ id, quantity }));
+    }
   };
 
   const handleClearCart = () => {
@@ -39,6 +36,12 @@ const CartPage: React.FC = () => {
             <button onClick={() => handleUpdateQuantity(item.id, quantity + 1)}>
               +
             </button>
+            <input
+              type="text"
+              value={quantity}
+              onChange={(e) => handleQuantityChange(item.id, e.target.value)}
+              // className={styles.quantityInput}
+            />
             <button onClick={() => handleUpdateQuantity(item.id, quantity - 1)}>
               -
             </button>
