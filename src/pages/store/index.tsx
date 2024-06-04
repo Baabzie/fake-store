@@ -28,17 +28,19 @@ const Store: React.FC = () => {
 
   return (
     <>
+      <ItemCarousel items={items} />
       <ImageLink
         category="men's clothing"
         image="male"
         alt="image of well dressed man"
+        text="New fashion for men"
       />
       <ImageLink
         category="women's clothing"
         image="female"
         alt="image of well dressed woman"
+        text="Latest fashion for women"
       />
-      <ItemCarousel items={items} />
     </>
   );
 };

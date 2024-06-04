@@ -1,0 +1,27 @@
+@import "@/styles/colors.scss";
+
+.image-div {
+  margin-top: 1rem;
+  width: 100%;
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.1);
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .text-over-image {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    font-size: 72px;
+  }
+}
