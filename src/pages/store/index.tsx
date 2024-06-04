@@ -3,6 +3,7 @@ import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
 import { ItemI } from "@/interfaces/ItemI";
 import ItemCarousel from "@/components/itemCarousel/ItemCarousel";
+import ImageLink from "@/components/imageLink/ImageLink";
 
 const Store: React.FC = () => {
   const [items, setItems] = useState<ItemI[]>([]);
@@ -27,6 +28,16 @@ const Store: React.FC = () => {
 
   return (
     <>
+      <ImageLink
+        category="men's clothing"
+        image="male"
+        alt="image of well dressed man"
+      />
+      <ImageLink
+        category="women's clothing"
+        image="female"
+        alt="image of well dressed woman"
+      />
       <ItemCarousel items={items} />
     </>
   );
