@@ -3,9 +3,14 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/configureStore";
 
 export default function Header() {
   const [categories, setCategories] = useState<string[]>([]);
+  const [cartQuantity, setCartQuantity] = useState<number>(0);
+
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +32,14 @@ export default function Header() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    let amount = 0;
+    cartItems.forEach((item) => {
+      amount = +item.quantity;
+    });
+    setCartQuantity(amount);
+  }, [cartItems]);
+
   const capitalizeFirstLetter = (string: string): string => {
     if (string.length === 0) return string;
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -38,7 +51,6 @@ export default function Header() {
         <div className={styles["left-top"]}></div>
         <div className={styles["center-top"]}>
           <Link href="/store">
-            {/* <h1>Fake-Store</h1> */}
             <img
               className={styles["logo"]}
               src="./images/logo.webp"
@@ -49,7 +61,7 @@ export default function Header() {
         <div className={styles["right-top"]}>
           <Link href="/cartPage/cartPage">
             <ShoppingCartIcon className={styles["icon"]} />
-            Cart ({0})
+            Cart ({cartQuantity})
           </Link>
         </div>
       </div>
