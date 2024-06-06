@@ -1,10 +1,3 @@
-// Typo: Ubunto
-// #F2071B
-// #1797A6
-// #106973
-// #29C7D9
-// #F2CC0C
-
 @import "./colors.scss";
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
 
@@ -12,12 +5,18 @@ body {
   font-family: "Ubuntu", sans-serif;
   margin: 0;
   background-color: $background-color;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 #__next {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   // div {
   //   width: 100%;
   // }
@@ -29,4 +28,5 @@ main {
   align-items: center;
   width: 100%;
   max-width: 960px;
+  margin-bottom: 2rem;
 }

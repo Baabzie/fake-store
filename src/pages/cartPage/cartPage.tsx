@@ -74,7 +74,6 @@ const CartPage: React.FC = () => {
               type="text"
               value={quantity}
               onChange={(e) => handleQuantityChange(item.id, e.target.value)}
-              // className={styles.quantityInput}
             />
             <button
               className={styles["plus-button"]}
@@ -87,19 +86,19 @@ const CartPage: React.FC = () => {
       </ul>
       {cartItems.length > 0 ? (
         <>
-          <div className={styles["total-price-wrapper"]}>
+          <div className={styles["bottom-wrapper"]}>
             <p>Total Price: ${totalPrice}</p>
-          </div>
-          <div className={styles["bottom-buttos-wrapper"]}>
-            <button className={styles["checkout-button"]}>
-              Go to Checkout
-            </button>
-            <button
-              className={styles["clear-button"]}
-              onClick={handleClearCart}
-            >
-              Clear Cart
-            </button>
+            <div className={styles["bottom-buttos-wrapper"]}>
+              <button className={styles["checkout-button"]}>
+                Go to Checkout
+              </button>
+              <button
+                className={styles["clear-button"]}
+                onClick={handleClearCart}
+              >
+                Clear Cart
+              </button>
+            </div>
           </div>
         </>
       ) : (

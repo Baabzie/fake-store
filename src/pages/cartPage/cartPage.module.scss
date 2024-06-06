@@ -34,10 +34,6 @@
     border-radius: 4px;
     height: 32px;
   }
-  .bottom-buttos-wrapper {
-    display: flex;
-    gap: 1rem;
-  }
   .remove-button {
     background-color: $color1;
   }
@@ -79,11 +75,17 @@
   }
 }
 
-.total-price-wrapper {
+.bottom-wrapper {
   background-color: $white;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  width: fit-content;
+  .bottom-buttos-wrapper {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
   p {
     margin: 0;
     font-weight: bold;
