@@ -9,7 +9,6 @@
   .logo {
     height: 50px;
     margin: 1rem;
-    margin-bottom: 0;
   }
   nav {
     margin-top: 0.5rem;
@@ -21,7 +20,6 @@
       gap: 2rem;
       li {
         a {
-          font-weight: bold;
           color: $black;
           text-decoration: none;
           p {
@@ -35,6 +33,47 @@
           text-decoration: underline;
         }
       }
+    }
+  }
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  div {
+    width: 100%;
+  }
+  .left-top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .center-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .right-top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $black;
+      margin: 0 3rem;
+      p {
+        margin: 0;
+      }
+      .icon {
+        color: $black;
+        font-size: 36px;
+      }
+    }
+    a:hover {
+      text-decoration: underline;
     }
   }
 }

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./Header.module.scss";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function Header() {
   const [categories, setCategories] = useState<string[]>([]);
@@ -33,18 +34,26 @@ export default function Header() {
 
   return (
     <header className={styles["header"]}>
-      <Link href="/store">
-        {/* <h1>Fake-Store</h1> */}
-        <img
-          className={styles["logo"]}
-          src="./images/logo.webp"
-          alt="fake store logo"
-        ></img>
-      </Link>
-      <Link href="/cartPage/cartPage">
-        {/* <h1>Fake-Store</h1> */}
-        Shopping Cart
-      </Link>
+      <div className={styles["top"]}>
+        <div className={styles["left-top"]}></div>
+        <div className={styles["center-top"]}>
+          <Link href="/store">
+            {/* <h1>Fake-Store</h1> */}
+            <img
+              className={styles["logo"]}
+              src="./images/logo.webp"
+              alt="fake-store logo"
+            ></img>
+          </Link>
+        </div>
+        <div className={styles["right-top"]}>
+          <Link href="/cartPage/cartPage">
+            <ShoppingCartIcon className={styles["icon"]} />
+            Cart ({0})
+          </Link>
+        </div>
+      </div>
+
       <nav>
         <ul>
           {categories.map((category, i) => {

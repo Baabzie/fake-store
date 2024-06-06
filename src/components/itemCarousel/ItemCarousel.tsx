@@ -41,7 +41,7 @@ const ItemCarousel: React.FC<CarouselProps> = ({ items }) => {
   }
 
   return (
-    <>
+    <div className={styles["carousel-div"]}>
       <SortingButtons
         items={items}
         activeCategory={activeCategory}
@@ -82,7 +82,7 @@ const ItemCarousel: React.FC<CarouselProps> = ({ items }) => {
           </div>
         ))}
       </Carousel>
-    </>
+    </div>
   );
 };
 

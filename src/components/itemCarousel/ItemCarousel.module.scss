@@ -1,5 +1,10 @@
 @import "@/styles/colors.scss";
 
+.carousel-div {
+  margin-top: 2rem;
+  width: 100%;
+}
+
 .carousel {
   width: 100%;
 }
@@ -10,8 +15,8 @@
   // justify-content: space-around;
   gap: 8px;
   align-items: center;
-  background-color: $gray;
-  padding: 1.5rem;
+  // background-color: $gray;
+  // padding: 1.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -29,10 +34,10 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  width: 222px;
+  width: 25%;
   // height: 500px;
   background-color: $white;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
 
   .img-div {
     padding: 24px;

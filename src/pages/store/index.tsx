@@ -28,7 +28,6 @@ const Store: React.FC = () => {
 
   return (
     <>
-      <ItemCarousel items={items} />
       <ImageLink
         category="men's clothing"
         image="male"
@@ -41,6 +40,7 @@ const Store: React.FC = () => {
         alt="image of well dressed woman"
         text="Latest fashion for women"
       />
+      <ItemCarousel items={items} />
     </>
   );
 };
