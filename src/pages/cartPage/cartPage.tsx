@@ -32,10 +32,30 @@ const CartPage: React.FC = () => {
       <ul>
         {cartItems.map(({ item, quantity }) => (
           <li key={item.id}>
-            {item.title} - {quantity}
-            <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
-            <button onClick={() => handleUpdateQuantity(item.id, quantity + 1)}>
-              +
+            <div className={styles["row"]}>
+              <div className={styles["left"]}>
+                <div className={styles["img-wrapper"]}>
+                  <img src={item.image} alt={item.title} />
+                </div>
+                <div>
+                  <p>{item.title}</p>
+                  <p>${item.price}</p>
+                </div>
+              </div>
+              <div className={styles["right"]}>
+                <button
+                  className={styles["remove-button"]}
+                  onClick={() => handleRemoveItem(item.id)}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+            <button
+              className={styles["minus-button"]}
+              onClick={() => handleUpdateQuantity(item.id, quantity - 1)}
+            >
+              -
             </button>
             <input
               type="text"
@@ -43,13 +63,22 @@ const CartPage: React.FC = () => {
               onChange={(e) => handleQuantityChange(item.id, e.target.value)}
               // className={styles.quantityInput}
             />
-            <button onClick={() => handleUpdateQuantity(item.id, quantity - 1)}>
-              -
+            <button
+              className={styles["plus-button"]}
+              onClick={() => handleUpdateQuantity(item.id, quantity + 1)}
+            >
+              +
             </button>
           </li>
         ))}
       </ul>
-      <button onClick={handleClearCart}>Clear Cart</button>
+      {cartItems.length > 0 ? (
+        <button className={styles["clear-button"]} onClick={handleClearCart}>
+          Clear Cart
+        </button>
+      ) : (
+        <p>You don't have any items in your cart.</p>
+      )}
     </div>
   );
 };
