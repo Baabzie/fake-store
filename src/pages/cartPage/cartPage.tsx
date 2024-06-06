@@ -1,12 +1,23 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 import { RootState } from "@/redux/configureStore";
 import { removeItem, updateQuantity, clearCart } from "@/redux/cartSlice";
 import styles from "./cartPage.module.scss";
+import Link from "next/link";
 
 const CartPage: React.FC = () => {
+  const [totalPrice, setTotalPrice] = useState<number>(0);
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
+
+  useEffect(() => {
+    let price = 0;
+    cartItems.forEach((item) => {
+      price += item.quantity * item.item.price;
+    });
+    setTotalPrice(price);
+  }, [cartItems]);
 
   const handleRemoveItem = (id: number) => {
     dispatch(removeItem(id));
@@ -34,9 +45,11 @@ const CartPage: React.FC = () => {
           <li key={item.id}>
             <div className={styles["row"]}>
               <div className={styles["left"]}>
-                <div className={styles["img-wrapper"]}>
-                  <img src={item.image} alt={item.title} />
-                </div>
+                <Link href={`/store/${item.id}`}>
+                  <div className={styles["img-wrapper"]}>
+                    <img src={item.image} alt={item.title} />
+                  </div>
+                </Link>
                 <div>
                   <p>{item.title}</p>
                   <p>${item.price}</p>
@@ -73,9 +86,22 @@ const CartPage: React.FC = () => {
         ))}
       </ul>
       {cartItems.length > 0 ? (
-        <button className={styles["clear-button"]} onClick={handleClearCart}>
-          Clear Cart
-        </button>
+        <>
+          <div className={styles["total-price-wrapper"]}>
+            <p>Total Price: ${totalPrice}</p>
+          </div>
+          <div className={styles["bottom-buttos-wrapper"]}>
+            <button className={styles["checkout-button"]}>
+              Go to Checkout
+            </button>
+            <button
+              className={styles["clear-button"]}
+              onClick={handleClearCart}
+            >
+              Clear Cart
+            </button>
+          </div>
+        </>
       ) : (
         <p>You don't have any items in your cart.</p>
       )}
