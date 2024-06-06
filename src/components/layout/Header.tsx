@@ -35,7 +35,7 @@ export default function Header() {
   useEffect(() => {
     let amount = 0;
     cartItems.forEach((item) => {
-      amount = +item.quantity;
+      amount += item.quantity;
     });
     setCartQuantity(amount);
   }, [cartItems]);

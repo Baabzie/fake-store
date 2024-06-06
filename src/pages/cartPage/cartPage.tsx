@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/configureStore";
 import { removeItem, updateQuantity, clearCart } from "@/redux/cartSlice";
+import styles from "./cartPage.module.scss";
 
 const CartPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const CartPage: React.FC = () => {
     dispatch(clearCart());
   };
   return (
-    <div>
+    <div className={styles["cart-page-div"]}>
       <h2>Shopping Cart</h2>
       <ul>
         {cartItems.map(({ item, quantity }) => (
