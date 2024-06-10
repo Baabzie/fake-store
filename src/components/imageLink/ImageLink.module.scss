@@ -23,5 +23,11 @@
     border-radius: 0.25rem;
     text-align: center;
     font-size: 72px;
+    @media (max-width: 960px) {
+      font-size: 56px;
+    }
+    @media (max-width: 500px) {
+      font-size: 36px;
+    }
   }
 }

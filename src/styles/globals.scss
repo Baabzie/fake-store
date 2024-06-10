@@ -29,4 +29,7 @@ main {
   width: 100%;
   max-width: 960px;
   margin-bottom: 2rem;
+  @media (max-width: 960px) {
+    width: 95%;
+  }
 }
