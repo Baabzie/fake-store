@@ -102,7 +102,7 @@ const CartPage: React.FC = () => {
           </div>
         </>
       ) : (
-        <p>You don't have any items in your cart.</p>
+        <p>You don&apos;t have any items in your cart.</p>
       )}
     </div>
   );

@@ -33,12 +33,7 @@ const CategoryPage: React.FC = () => {
       }
     };
     fetchData();
-  }, [category]);
-
-  // For testing only
-  useEffect(() => {
-    console.log(items);
-  }, [items]);
+  }, [category, categoryUrlEncoded]);
 
   const capitalizeFirstLetter = (string: string): string => {
     if (string.length === 0) return string;
@@ -51,9 +46,9 @@ const CategoryPage: React.FC = () => {
         <h2>{capitalizeFirstLetter(categoryStr)}</h2>
       </div>
       <ul className={styles["item-list"]}>
-        {items.map((item) => {
+        {items.map((item, i) => {
           return (
-            <li>
+            <li key={i}>
               <Link href={`/store/${item.id}`} className={styles["item-btn"]}>
                 <div className={styles["img-div"]}>
                   <img src={item.image} alt={item.title} width="50" />
