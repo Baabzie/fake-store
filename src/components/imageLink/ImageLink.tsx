@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./ImageLink.module.scss";
-import Image from "next/image";
+// import Image from "next/image";
 
 interface ImageLinkProps {
   category: string;
@@ -18,7 +18,7 @@ const ImageLink: React.FC<ImageLinkProps> = ({
   return (
     <div className={styles["image-div"]}>
       <Link href={`/categoryPage/${category}`}>
-        <Image src={`./images/${image}.jpg`} alt={`${alt}`} />
+        <img src={`./images/${image}.jpg`} alt={`${alt}`} />
         <h2 className={styles["text-over-image"]}>{text}</h2>
       </Link>
     </div>

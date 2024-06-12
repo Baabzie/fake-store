@@ -5,7 +5,7 @@ import styles from "./Header.module.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/configureStore";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Header() {
   const [categories, setCategories] = useState<string[]>([]);
@@ -52,7 +52,7 @@ export default function Header() {
         <div className={styles["left-top"]}></div>
         <div className={styles["center-top"]}>
           <Link href="/store">
-            <Image
+            <img
               className={styles["logo"]}
               src="./images/logo.webp"
               alt="fake-store logo"
