@@ -6,6 +6,7 @@ import styles from "./ItemCarousel.module.scss";
 import SortingButtons from "./SortingButtons";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface CarouselProps {
   items: ItemI[];
@@ -66,17 +67,11 @@ const ItemCarousel: React.FC<CarouselProps> = ({ items }) => {
                 className={styles["item-btn"]}
               >
                 <div className={styles["img-div"]}>
-                  <img src={item.image} alt={item.title} />
+                  <Image src={item.image} alt={item.title} />
                 </div>
                 <div className={styles["text-div"]}>
-                  {/* <p>{item.title}</p> */}
                   <p>${item.price}</p>
                 </div>
-                {/* <div>
-              Rating: {item.rating.rate} ({item.rating.count} reviews)
-            </div>
-            <div>{item.category}</div>
-            <p>{item.description}</p> */}
               </Link>
             ))}
           </div>
