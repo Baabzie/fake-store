@@ -1,13 +1,12 @@
-// import NavBar from "./NavBar";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/configureStore";
-// import Image from "next/image";
+import HamburgerMenu from "./HamburgerMenu";
 
-export default function Header() {
+const Header: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [cartQuantity, setCartQuantity] = useState<number>(0);
 
@@ -24,7 +23,7 @@ export default function Header() {
           throw new Error("Network response was not ok");
         }
 
-        const data = await response.json();
+        const data: string[] = await response.json();
         setCategories(data);
       } catch (error) {
         console.error("There was a problem with the fetch operation:", error);
@@ -49,7 +48,9 @@ export default function Header() {
   return (
     <header className={styles["header"]}>
       <div className={styles["top"]}>
-        <div className={styles["left-top"]}></div>
+        <div className={styles["left-top"]}>
+          <HamburgerMenu categories={categories} />
+        </div>
         <div className={styles["center-top"]}>
           <Link href="/store">
             <img
@@ -69,17 +70,17 @@ export default function Header() {
 
       <nav>
         <ul>
-          {categories.map((category, i) => {
-            return (
-              <li key={i}>
-                <Link href={`/categoryPage/${category}`}>
-                  <p>{capitalizeFirstLetter(category)}</p>
-                </Link>
-              </li>
-            );
-          })}
+          {categories.map((category, i) => (
+            <li key={i}>
+              <Link href={`/categoryPage/${category}`}>
+                <p>{capitalizeFirstLetter(category)}</p>
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
   );
-}
+};
+
+export default Header;
