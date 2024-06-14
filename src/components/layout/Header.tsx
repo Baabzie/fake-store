@@ -5,6 +5,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/configureStore";
 import HamburgerMenu from "./HamburgerMenu";
+import Navbar from "./Navbar";
 
 const Header: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
@@ -67,18 +68,7 @@ const Header: React.FC = () => {
           </Link>
         </div>
       </div>
-
-      <nav>
-        <ul>
-          {categories.map((category, i) => (
-            <li key={i}>
-              <Link href={`/categoryPage/${category}`}>
-                <p>{capitalizeFirstLetter(category)}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <Navbar categories={categories} />
     </header>
   );
 };
