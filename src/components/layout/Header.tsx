@@ -50,7 +50,9 @@ const Header: React.FC = () => {
     <header className={styles["header"]}>
       <div className={styles["top"]}>
         <div className={styles["left-top"]}>
-          <HamburgerMenu categories={categories} />
+          <div className={styles["hamburger-div"]}>
+            <HamburgerMenu categories={categories} />
+          </div>
         </div>
         <div className={styles["center-top"]}>
           <Link href="/store">
@@ -68,7 +70,9 @@ const Header: React.FC = () => {
           </Link>
         </div>
       </div>
-      <Navbar categories={categories} />
+      <div className={styles["navbar-div"]}>
+        <Navbar categories={categories} />
+      </div>
     </header>
   );
 };
