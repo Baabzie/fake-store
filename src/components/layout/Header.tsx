@@ -66,7 +66,11 @@ const Header: React.FC = () => {
         <div className={styles["right-top"]}>
           <Link href="/cartPage/cartPage">
             <ShoppingCartIcon className={styles["icon"]} />
-            Cart ({cartQuantity})
+            {cartQuantity > 0 && (
+              <div className={styles["cirlce"]}>
+                <p>{cartQuantity}</p>
+              </div>
+            )}
           </Link>
         </div>
       </div>

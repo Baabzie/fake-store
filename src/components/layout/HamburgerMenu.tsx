@@ -36,7 +36,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ categories }) => {
   return (
     <div className={styles.navbar} ref={menuRef}>
       <div className={styles.hamburger} onClick={toggleMenu}>
-        <MenuIcon />
+        <MenuIcon className={styles["icon"]} />
       </div>
       <nav className={`${styles.menu} ${isOpen ? "" : styles.hidden}`}>
         <ul>
